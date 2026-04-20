@@ -1,52 +1,82 @@
-name: Expo CI/CD
+name: Build Android APK
 
 on:
   push:
-    branches: [main]
+    branches: [main, master]
   pull_request:
-    branches: [main]
+    branches: [main, master]
+  workflow_dispatch:
 
 jobs:
-  test:
+  build-android:
+    name: Build Android APK
     runs-on: ubuntu-latest
+    
     steps:
-      - uses: actions/checkout@v4
-      
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
-      
-      - name: Install dependencies
-        run: npm ci
-      
-      - name: Run tests
-        run: npm test
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-  build:
-    runs-on: ubuntu-latest
-    needs: test
-    steps:
-      - uses: actions/checkout@v4
-      
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
-      
-      - name: Install dependencies
-        run: npm ci
-      
-      - name: Build Android
-        run: npx expo export --platform android
-      
-      - name: Build iOS
-        run: npx expo export --platform ios
-      
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
         with:
-          name: build-output
-          path: dist/
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Cache node modules
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps
+        env:
+          CI: 1
+
+      - name: Check Expo version
+        run: npx expo --version
+
+      - name: Generate native Android project
+        run: npx expo prebuild --platform android --clean
+        env:
+          EXPO_NO_TELEMETRY: 1
+
+      - name: Build Debug APK
+        run: |
+          cd android
+          chmod +x ./gradlew
+          ./gradlew assembleDebug --no-daemon -x lint
+
+      - name: Upload Debug APK
+        uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: Longinsent-debug-apk
+          path: android/app/build/outputs/apk/debug/app-debug.apk
+          retention-days: 30
+
+      - name: Build Release APK
+        if: success()
+        run: |
+          cd android
+          ./gradlew assembleRelease --no-daemon -x lint
+
+      - name: Upload Release APK
+        uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: Longinsent-release-apk
+          path: android/app/build/outputs/apk/release/app-release-unsigned.apk
+          retention-days: 30
+
+      - name: List built APKs
+        if: success()
+        run: ls -la android/app/build/outputs/apk/*/app*.apk

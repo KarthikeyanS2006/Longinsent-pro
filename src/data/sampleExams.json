@@ -1,0 +1,187 @@
+[
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440001",
+    "exam_name": "TNPSC Group 4",
+    "exam_year": 2024,
+    "state": "Tamil Nadu",
+    "subject_category": "General Studies",
+    "created_at": "2024-01-15T10:30:00Z",
+    "exam_data": {
+      "document_info": {
+        "exam_name": "TNPSC Group 4 Combined Civil Services Examination",
+        "exam_year": 2024,
+        "state": "Tamil Nadu",
+        "total_questions": 100,
+        "duration": "150 minutes"
+      },
+      "questions": [
+        {
+          "id": "q001",
+          "subject": "History",
+          "question_text": "Who was the founder of the Chola dynasty?",
+          "options": [
+            { "id": "a", "text": "Rajaraja I", "is_correct": false },
+            { "id": "b", "text": "Vijayanagara rulers", "is_correct": false },
+            { "id": "c", "text": "Karikalan", "is_correct": true },
+            { "id": "d", "text": "Rajendra Chola I", "is_correct": false }
+          ],
+          "explanation": {
+            "english": "Karikalan was the founder of the Chola dynasty. He is known for building the Kallanai (Grand Anicut), one of the oldest water diversion structures in the world.",
+            "tanglish": "Karikalan Chola dynasty-oda founder ah iruppan. Avan Kallanai (Grand Anicut) build pannina, ava world-oda oldest water diversion structures之一.",
+            "topic": "Ancient History - Chola Dynasty"
+          }
+        },
+        {
+          "id": "q002",
+          "subject": "Geography",
+          "question_text": "Which is the largest river in Tamil Nadu?",
+          "options": [
+            { "id": "a", "text": "Cauvery", "is_correct": true },
+            { "id": "b", "text": "Tamirabarani", "is_correct": false },
+            { "id": "c", "text": "Palar", "is_correct": false },
+            { "id": "d", "text": "Vaigai", "is_correct": false }
+          ],
+          "explanation": {
+            "english": "The Cauvery River is the largest river in Tamil Nadu, originating from the Western Ghats and flowing through the state before emptying into the Bay of Bengal.",
+            "tanglish": "Cauvery River Tamil Nadu-oda largest river. Ivar Western Ghats-ku from aga start agi, state through agi flow panni, Bay of Bengal-ku povom.",
+            "topic": "Geography of Tamil Nadu - Rivers"
+          }
+        },
+        {
+          "id": "q003",
+          "subject": "Polity",
+          "question_text": "The Governor of Tamil Nadu is appointed by whom?",
+          "options": [
+            { "id": "a", "text": "President of India", "is_correct": true },
+            { "id": "b", "text": "Prime Minister", "is_correct": false },
+            { "id": "c", "text": "Chief Minister", "is_correct": false },
+            { "id": "d", "text": "Chief Justice", "is_correct": false }
+          ],
+          "explanation": {
+            "english": "The Governor of a state is appointed by the President of India under Article 153 of the Indian Constitution. The current Governor of Tamil Nadu is R.N. Ravi.",
+            "tanglish": "State Governor-o Government of India President appoint pannuvangaar. Article 153 under Indian Constitution-la ithu clear aga irukku.",
+            "topic": "Indian Polity - State Government"
+          }
+        },
+        {
+          "id": "q004",
+          "subject": "Science",
+          "question_text": "What is the chemical formula of water?",
+          "options": [
+            { "id": "a", "text": "CO2", "is_correct": false },
+            { "id": "b", "text": "H2O", "is_correct": true },
+            { "id": "c", "text": "NaCl", "is_correct": false },
+            { "id": "d", "text": "O2", "is_correct": false }
+          ],
+          "explanation": {
+            "english": "Water is composed of two hydrogen atoms and one oxygen atom, giving it the chemical formula H2O. It is essential for all known forms of life.",
+            "tanglish": "Water-e two hydrogen atoms and one oxygen atom combine panni irukku. Chemical formula H2O. Ithu ellame known life forms-ku essential.",
+            "topic": "Chemistry - Basic Compounds"
+          }
+        },
+        {
+          "id": "q005",
+          "subject": "History",
+          "question_text": "In which year did India gain independence?",
+          "options": [
+            { "id": "a", "text": "1945", "is_correct": false },
+            { "id": "b", "text": "1946", "is_correct": false },
+            { "id": "c", "text": "1947", "is_correct": true },
+            { "id": "d", "text": "1950", "is_correct": false }
+          ],
+          "explanation": {
+            "english": "India gained independence from British rule on August 15, 1947. This was the result of years of freedom struggle led by Mahatma Gandhi and other leaders.",
+            "tanglish": "India British rule-ku v Independence August 15, 1947-ku kidaikkachu. Mahatma Gandhi and matrimony leaders lead panna freedom struggle-result.",
+            "topic": "Indian Independence Movement"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440002",
+    "exam_name": "UPSC CSE Prelims",
+    "exam_year": 2024,
+    "state": "National",
+    "subject_category": "General Studies",
+    "created_at": "2024-06-02T09:00:00Z",
+    "exam_data": {
+      "document_info": {
+        "exam_name": "Union Public Service Commission Civil Services Preliminary Examination",
+        "exam_year": 2024,
+        "state": "National",
+        "total_questions": 100,
+        "duration": "120 minutes"
+      },
+      "questions": [
+        {
+          "id": "upsc001",
+          "subject": "Polity",
+          "question_text": "Which article of the Indian Constitution abolishes untouchability?",
+          "options": [
+            { "id": "a", "text": "Article 14", "is_correct": false },
+            { "id": "b", "text": "Article 17", "is_correct": true },
+            { "id": "c", "text": "Article 21", "is_correct": false },
+            { "id": "d", "text": "Article 32", "is_correct": false }
+          ],
+          "explanation": {
+            "english": "Article 17 of the Indian Constitution abolishes untouchability and forbids its practice in any form. It enforcement is supplemented by the Protection of Civil Rights Act, 1955.",
+            "tanglish": "Indian Constitution-oda Article 17 untouchability abolish pannidu. Ithu ellarum practice panna mudiyathu. Protection of Civil Rights Act, 1955 enforce pannidu.",
+            "topic": "Indian Constitution - Fundamental Rights"
+          }
+        },
+        {
+          "id": "upsc002",
+          "subject": "Economics",
+          "question_text": "What does GDP stand for?",
+          "options": [
+            { "id": "a", "text": "Gross Domestic Product", "is_correct": true },
+            { "id": "b", "text": "Gross Domestic Planning", "is_correct": false },
+            { "id": "c", "text": "Global Domestic Product", "is_correct": false },
+            { "id": "d", "text": "Government Domestic Policy", "is_correct": false }
+          ],
+          "explanation": {
+            "english": "GDP or Gross Domestic Product is the total monetary value of all finished goods and services produced within a country's borders in a specific time period.",
+            "tanglish": "GDP Gross Domestic Product, country border-la produce panna finished goods and services-oda total monetary value.",
+            "topic": "Economics - National Income"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440003",
+    "exam_name": "SSC CGL",
+    "exam_year": 2023,
+    "state": "National",
+    "subject_category": "General Studies",
+    "created_at": "2023-07-15T14:00:00Z",
+    "exam_data": {
+      "document_info": {
+        "exam_name": "Staff Selection Commission Combined Graduate Level Examination",
+        "exam_year": 2023,
+        "state": "National",
+        "total_questions": 100,
+        "duration": "60 minutes"
+      },
+      "questions": [
+        {
+          "id": "ssc001",
+          "subject": "Mathematics",
+          "question_text": "What is 15% of 200?",
+          "options": [
+            { "id": "a", "text": "25", "is_correct": false },
+            { "id": "b", "text": "30", "is_correct": true },
+            { "id": "c", "text": "35", "is_correct": false },
+            { "id": "d", "text": "40", "is_correct": false }
+          ],
+          "explanation": {
+            "english": "15% of 200 = (15/100) × 200 = 30. This is a basic percentage calculation commonly asked in quantitative aptitude sections.",
+            "tanglish": "15% of 200 = (15/100) × 200 = 30. Basic percentage calculation.",
+            "topic": "Quantitative Aptitude - Percentages"
+          }
+        }
+      ]
+    }
+  }
+]

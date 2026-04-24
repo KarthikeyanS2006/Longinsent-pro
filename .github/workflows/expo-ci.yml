@@ -32,23 +32,20 @@ jobs:
         env:
           CI: 1
 
-      - name: Clean expo cache
-        run: |
-          rm -rf node_modules/.cache
-          rm -rf ~/.expo
-
       - name: Check Expo version
         run: npx expo --version
 
-      - name: Generate native Android project with EAS
-        run: npx expo prebuild --platform android --clean --no-install
+      - name: Generate native Android project
+        run: npx expo prebuild --platform android --clean
         env:
           EXPO_NO_TELEMETRY: 1
           CI: 1
 
-      - name: Install Android dependencies
-        run: cd android && ./gradlew assembleDebug --no-daemon -x lint -Dorg.gradle.jvmargs=-Xmx2048m
-        working-directory: .
+      - name: Build Debug APK
+        run: |
+          cd android
+          chmod +x ./gradlew
+          ./gradlew assembleDebug --no-daemon -x lint
 
       - name: Upload Debug APK
         uses: actions/upload-artifact@v4

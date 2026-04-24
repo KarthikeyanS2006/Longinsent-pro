@@ -20,7 +20,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
 
       - name: Setup Java
         uses: actions/setup-java@v4
@@ -28,41 +27,28 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Cache node modules
-        uses: actions/cache@v4
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
       - name: Install dependencies
-        run: npm install --legacy-peer-deps
+        run: npm ci --legacy-peer-deps
         env:
           CI: 1
+
+      - name: Clean expo cache
+        run: |
+          rm -rf node_modules/.cache
+          rm -rf ~/.expo
 
       - name: Check Expo version
         run: npx expo --version
 
-      - name: Commit any changes
-        run: |
-          git config --global user.email "githubactions@github.com"
-          git config --global user.name "GitHub Actions"
-          git add -A
-          git commit -m "Commit generated files" || true
-
-      - name: Generate native Android project
-        run: |
-          npx expo prebuild --platform android --clean --non-interactive
+      - name: Generate native Android project with EAS
+        run: npx expo prebuild --platform android --clean --no-install
         env:
           EXPO_NO_TELEMETRY: 1
           CI: 1
 
-      - name: Build Debug APK
-        run: |
-          cd android
-          chmod +x ./gradlew
-          ./gradlew assembleDebug --no-daemon -x lint
+      - name: Install Android dependencies
+        run: cd android && ./gradlew assembleDebug --no-daemon -x lint -Dorg.gradle.jvmargs=-Xmx2048m
+        working-directory: .
 
       - name: Upload Debug APK
         uses: actions/upload-artifact@v4
@@ -70,20 +56,6 @@ jobs:
         with:
           name: Longinsent-debug-apk
           path: android/app/build/outputs/apk/debug/app-debug.apk
-          retention-days: 30
-
-      - name: Build Release APK
-        if: success()
-        run: |
-          cd android
-          ./gradlew assembleRelease --no-daemon -x lint
-
-      - name: Upload Release APK
-        uses: actions/upload-artifact@v4
-        if: success()
-        with:
-          name: Longinsent-release-apk
-          path: android/app/build/outputs/apk/release/app-release-unsigned.apk
           retention-days: 30
 
       - name: List built APKs

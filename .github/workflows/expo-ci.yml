@@ -44,6 +44,13 @@ jobs:
       - name: Check Expo version
         run: npx expo --version
 
+      - name: Commit any changes
+        run: |
+          git config --global user.email "githubactions@github.com"
+          git config --global user.name "GitHub Actions"
+          git add -A
+          git commit -m "Commit generated files" || true
+
       - name: Generate native Android project
         run: |
           npx expo prebuild --platform android --clean --non-interactive
